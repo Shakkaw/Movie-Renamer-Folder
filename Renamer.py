@@ -52,7 +52,7 @@ if __name__ == "__main__":
                 new_dir_path = os.path.join(root, new_dir_name)
 
                 # Print the change 
-                print(f"\nChanged file from -> \n[ {old_dir_path} ]\nto \n[ {new_dir_path} ]\n")
+                print(f"\nChanged folder from -> \n[ {old_dir_path} ]\nto \n[ {new_dir_path} ]\n")
                 
                 # Rename the directory
                 os.rename(old_dir_path, new_dir_path)
