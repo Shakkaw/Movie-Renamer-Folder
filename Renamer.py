@@ -47,14 +47,22 @@ if __name__ == "__main__":
                 # Construct the new name
                 new_dir_name = f"{title} ({year})({resolution},{codec})"
 
+                # Get the full path of the directory
+                old_dir_path = os.path.join(root, dir_name)
+                new_dir_path = os.path.join(root, new_dir_name)
+
                 # Print the change 
-                print(f"\nChanged file from -> \n[ {dir_name} ]\nto \n[ {new_dir_name} ]\n")
+                print(f"\nChanged file from -> \n[ {old_dir_path} ]\nto \n[ {new_dir_path} ]\n")
                 
                 # Rename the directory
-                os.rename(dir_name, new_dir_name)
+                os.rename(old_dir_path, new_dir_path)
 
         for file_name in files:
             
+            if file_name.endswith('.txt') or file_name.endswith('.jpg'):
+                file_path = os.path.join(root, file_name)
+                os.remove(file_path)
+                
             if file_name.endswith('.mp4') or file_name.endswith('.mkv') or file_name.endswith('.srt'):
                 
                 # Get the file extension 
